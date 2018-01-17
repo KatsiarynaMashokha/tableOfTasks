@@ -8,7 +8,7 @@ class TableRow extends Component {
         <td>{this.props.id}</td>
         <td>{this.props.userId}</td>
         <td>{this.props.title}</td>
-        <td>{this.props.completed.toString()}</td>
+        <td>{this.props.completed}</td>
       </tr>
     );
   }

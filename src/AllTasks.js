@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import Table from "./Table";
 import getAllTasks from "./TasksCall";
+import Immutable from 'immutable';
 
 class AllTasks extends Component {
-  state = { allTasks: [] };
+  state = { allTasks: new Immutable.List() };
   componentDidMount() {
     getAllTasks().then(
-      response => this.setState({ allTasks: response }),
+      response => {
+        const NewTaskList = new Immutable.List(response.map(task => new TaskRecord(task)));
+        console.log(NewTaskList.toJSON());
+        this.setState({ allTasks: NewTaskList})
+      },
       error => console.log(error)
     );
   }
@@ -19,5 +24,13 @@ class AllTasks extends Component {
     );
   }
 }
+
+
+const TaskRecord = new Immutable.Record({
+  id: null,
+  userId: null,
+  title: null,
+  completed: null
+});
 
 export default AllTasks;

@@ -13,7 +13,7 @@ const Table = props => {
         </tr>
       </thead>
       <tbody>
-        {props.totalTasks.map(task => <TableRow key={task.id} {...task} />)}
+        {props.totalTasks.map(task => <TableRow key={task.id} {...task.toObject()} />)}
       </tbody>
     </table>
   );
