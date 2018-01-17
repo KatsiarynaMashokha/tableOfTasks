@@ -20,6 +20,8 @@ const Table = props => {
 };
 
 let tStyle = {
+  backgroundColor: "rgba(255, 255, 255, 0.3)",
+  textTransform: "uppercase",
   border: "1px solid black",
   padding: "3px"
 };
